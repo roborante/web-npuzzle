@@ -1,0 +1,412 @@
+html {
+  height: 100%;
+}
+
+body{
+  height             : 100%;
+  margin             : 0;
+  overflow           : hidden;
+  background         : url('img/background.jpg') !important;
+  background-size    : cover !important;
+  background-color   : rgb(11,38,25); 
+}
+
+#board {
+  position: absolute;
+  opacity : 0;
+}
+
+.posB, .settings, .stats {
+  opacity: 0;
+}
+
+.pos {
+  position       : absolute;
+  background     : url('tiles/0.gif');
+  background-size: cover !important;
+  outline        : 1vmin ridge rgba(38.2%,38.2%,38.2%,.382);
+  outline-offset :-0.889vmin;
+}
+
+.tile {
+  float  : left;
+  width : 100%;
+  height: 100%;
+  outline       : 1vmin ridge rgba(38.2%,38.2%,38.2%,.0);
+  outline-offset:-0.889vmin;
+  border-radius : 11.4%;
+  will-change: transform;
+}
+
+.movable:hover {
+  outline: 1vmin dashed rgb(89%,89%,89%);
+  filter : hue-rotate(45deg);
+  cursor : pointer;
+}
+
+.index {
+  position   : absolute;
+  cursor     : default;
+  font-family:"monospace" !important;
+  font-size  : 1.618vw;
+  margin-left: 1.246vw;
+  margin-top : 1.246vw;
+  color      : white;
+  font-weight: bold;
+  text-shadow:-1px -1px 0   black,
+               1px -1px 0   black,
+              -1px  1px 0   black,
+               2px  2px 2px black;
+}
+
+.upload {
+  display: none;
+}
+
+input {
+  cursor       : pointer;
+  margin-top   :-1px;
+  margin-bottom: 8px;
+  box-shadow   : 3px 3px 3px black;
+}
+
+.settings {
+  font-family :"monospace" !important;
+  position    : absolute;
+  color       : #FDF5E6;
+  height      : 80px;
+  font-size   : 11px;
+}
+
+#boardSettings {
+  text-align  : right;
+  margin-right: -1px;
+  right       : 3px;
+  margin-top  : 8px;
+}
+
+#imageSettings {
+  margin-left: -1px;
+  margin-top : 12px;
+  left       : 2px;
+}
+
+label {
+  position   : absolute;
+  font-style : italic  ;
+  color      : #FDF5E6 ;
+  text-shadow:-1px -1px 0   black,
+               1px -1px 0   black,
+              -1px  1px 0   black,
+               2px  2px 2px black;
+}
+
+.rightLabel {
+  text-align : right;
+  margin-left: -37px;
+}
+
+.leftLabel {
+  margin-left: 2px;
+}
+
+#nums {
+  margin-bottom: 14px;
+}
+
+button {
+  font-family  :"monospace" !important;
+  box-shadow   : 4px 4px 4px black;
+  border       : 0.764vw outset;
+  position     : absolute;
+  cursor       : pointer;
+  color        : black;
+  font-weight  : bold;
+  border-radius: 50%;
+}
+
+.posB {
+  position: absolute;
+}
+
+#newGame {
+  bottom: 0px;
+  right : 0px;
+}
+
+table, th, tr {
+  border-radius : 25px 25px 25px 25px;
+  border        : 1px outset #ECE4D5;
+  font-family   : "monospace" !important;
+  color         : #FDF5E6 ;
+  table-layout  : fixed;
+  border-spacing: 0px; 
+  box-shadow    : 3px  3px 3px black;
+  text-shadow   :-1px -1px 0   black,
+                  1px -1px 0   black,
+                 -1px  1px 0   black,
+                  2px  2px 2px black;
+}
+
+.stats {
+  position: absolute;
+}
+
+#count {
+  cursor       : default;
+  width        : 50%; 
+  margin-left  : 25%; 
+  margin-right : 25%;
+}
+
+.cover {
+  position: absolute;
+  top     : 0px;
+  left    : 0px;
+}
+
+#coverBoard {
+  width : 100%;
+  height: 100%;
+}
+
+#coverAll {
+  width : 99.9%;
+  height: 99%;
+}
+
+.gear {
+  position: absolute;
+  width   : 50%;
+  height  : 50%;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.gearFinal {
+  position : absolute;
+  width    : 76.4%;
+  height   : 76.4%;
+  left     : 11.8%;
+  top      : 11.8%;
+  animation: app 618ms 1 ease-out;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+#gear1 {
+  right    : 6.6%;
+  top      : 11.1%;
+  animation: app 618ms 1 ease-in-out;
+}
+
+#gear2 {
+  left     : 6.6%;
+  bottom   : 10.889%;
+  animation: frL 618ms 1 ease-in-out;
+}
+
+#gearCheck {
+  left     : 25%;
+  top      : 25%;
+  animation: chkP 1382ms 1 linear;
+}
+
+.thumb {
+  position : absolute;
+  width    : 23.6%;
+  height   : 38.2%;
+  top      : 28.9%;
+  animation: app 618ms 1 ease-out;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+#thumbL {
+  right: 0px;
+}
+
+#thumbR {
+  left: 0px;
+}
+
+@keyframes osc {
+	  0% { transform: rotate(  0deg); }
+ 	 25% { transform: rotate( 15deg); }
+	 75% { transform: rotate(-15deg); }
+  100% { transform: rotate(  0deg); }
+}
+
+@keyframes oscillator {
+	  0% { transform: rotate(  0deg); }
+	 25% { transform: rotate( 15deg); }
+	 75% { transform: rotate(-15deg); }
+  100% { transform: rotate(  0deg); }
+}
+
+@keyframes tlm {
+	   0% { transform: scale(1.000); }
+	  25% { transform: scale(0.886); }
+	  75% { transform: scale(1.114); }
+   100% { transform: scale(1.000); }
+}
+
+@keyframes trm {
+	   0% { transform: scale(1.000); }
+	  25% { transform: scale(1.114); }
+	  75% { transform: scale(0.886); }
+   100% { transform: scale(1.000); }
+}
+
+@keyframes thumbLeftMove {
+	   0% { transform: scale(1.000); }
+	  25% { transform: scale(0.886); }
+	  75% { transform: scale(1.114); }
+   100% { transform: scale(1.000); }
+}
+
+@keyframes thumbRightMove {
+	   0% { transform: scale(1.000); }
+	  25% { transform: scale(1.114); }
+	  75% { transform: scale(0.886); }
+   100% { transform: scale(1.000); }
+}
+ 
+@keyframes chkP {
+     0% { transform: scale(0.0) rotate( 180deg); }
+	  50% { transform: scale(2.0) rotate(   0deg); }
+   100% { transform: scale(0.0) rotate(-180deg); }
+}
+
+@keyframes app {
+      0% { transform: scale(0.0); }
+    100% { transform: scale(1.0); }
+}
+
+@keyframes appear {
+      0% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes dis {
+      0% { transform: scale(1.0); }
+    100% { transform: scale(0.0); }
+}
+
+@keyframes disappear {
+      0% { opacity: 1.0; }
+    100% { opacity: 0.0; }
+}
+
+@keyframes hid {
+      0% { opacity: 1.0; }
+    100% { opacity: 0.0; }
+}
+
+@keyframes hide {
+      0% { opacity: 1.0; }
+    100% { opacity: 0.0; }
+}
+
+@keyframes shw {
+      0% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes show {
+      0% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes frL {
+      0% { transform: translate(-161%) rotate(45deg); }
+    100% { transform: translate(   0%) rotate( 0deg); }
+}
+
+@keyframes CW {
+      0% { transform: rotate(  0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes clockwise {
+      0% { transform: rotate(  0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes CCW {
+      0% { transform: rotate(   0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes counterclockwise {
+      0% { transform: rotate(   0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes U {
+      0% { transform: translateY(-100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateY(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@keyframes slideUp {
+      0% { transform: translateY(-100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateY(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@keyframes D {
+      0% { transform: translateY( 100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateY(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@keyframes slideDown {
+      0% { transform: translateY( 100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateY(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@keyframes L {
+      0% { transform: translateX( 100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateX(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@keyframes slideLeft {
+      0% { transform: translateX( 100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateX(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@keyframes R {
+      0% { transform: translateX(-100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateX(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@keyframes slideRight {
+      0% { transform: translateX(-100%); outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+  97.64% {                               outline-color: rgba(38.2%,38.2%,38.2%,.382); }
+    100% { transform: translateX(   0%); outline-color: rgba(    0,    0,    0,  .0); }
+}
+
+@media screen and (max-height: 350px) {
+    #board{transform: scale(1.382);}
+    button{display  : none;}
+	  table {display  : none;}
+}
+
+@media screen and (max-width: 350px) {
+    button    {display  : none             ;}
+    #board    {transform: scale(1.382)     ;}
+    #count    {transform: translateY( 162%);}
+    #heuristic{transform: translateY(-238%);}
+}
+
+@media screen and (max-width: 400px) {
+	.settings{display:none;}
+}
